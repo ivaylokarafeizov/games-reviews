@@ -9,6 +9,13 @@
   color: rgb(255, 255, 255);
 }
 
+.main .recent {
+  font-size: 40px;
+  font-family: "Anonymous Pro", monospace;
+  color: #000;
+  text-shadow: 1px 1px 1px #000000;
+}
+
 .benefits {
   text-shadow: 1px 1px 1px #000000;
   padding: 40px;
