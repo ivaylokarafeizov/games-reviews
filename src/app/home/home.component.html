@@ -1,0 +1,21 @@
+<main class="main">
+  <section class="site-intro">
+    <h2>Want to know more</h2>
+    <h3>about your favorite game?</h3>
+    <p>
+      Here you will find out more about the games you like and many others you
+      are interested in.
+    </p>
+  </section>
+  <app-recent-reviews-list />
+  <section class="benefits" *ngIf="!isLogged">
+    <h3>
+      <a routerLink="/login">Sign in</a> or
+      <a routerLink="/register">register</a> in order to access:
+    </h3>
+    <ul>
+      <li>Our Add Review Page</li>
+      <li>Our Comments Section</li>
+    </ul>
+  </section>
+</main>

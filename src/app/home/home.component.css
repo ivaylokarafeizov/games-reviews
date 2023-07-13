@@ -1,0 +1,84 @@
+.main {
+  padding-bottom: 65px;
+  gap: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(237, 213, 213);
+  color: rgb(255, 255, 255);
+}
+
+.benefits {
+  text-shadow: 1px 1px 1px #000000;
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid black;
+}
+
+.benefits h3 {
+  color: white;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.benefits h3 a {
+  color: #000;
+}
+
+.benefits h3 a:hover {
+  color: #a73131;
+}
+
+.benefits a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.benefits ul {
+  list-style-type: disc;
+  padding: 0 50px;
+  font-size: 24px;
+  color: #000000;
+  padding-top: 30px;
+}
+
+.benefits li {
+  padding: 10px 0;
+}
+
+.site-intro {
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: url("../../assets/images/sekiro-wallpaper.jpg");
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  text-shadow: 2px 2px 5px #000000;
+  font-family: "Anonymous Pro", monospace;
+  width: 100%;
+  color: rgb(255, 255, 255);
+}
+
+.site-intro h2 {
+  padding-left: 90px;
+  padding-top: 350px;
+  font-weight: 700;
+  font-size: 42px;
+}
+
+.site-intro h3 {
+  padding-left: 90px;
+  padding-top: 15px;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.site-intro p {
+  width: 550px;
+  padding-left: 90px;
+  padding-top: 30px;
+  font-size: 24px;
+}

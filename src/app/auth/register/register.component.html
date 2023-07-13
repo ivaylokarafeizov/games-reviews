@@ -1,0 +1,52 @@
+<main class="main">
+  <form class="form" id="register" method="post">
+    <h3>Register</h3>
+    <label class="label" htmlFor="username"> Username </label>
+    <input
+      class="normal"
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Bruce Wayne"
+    />
+    <label class="label" htmlFor="email"> Email </label>
+    <input
+      class="normal"
+      type="email"
+      id="email"
+      name="email"
+      placeholder="maria@email.com"
+    />
+    <div class="double">
+      <div class="inputGroup">
+        <label class="label" htmlFor="password"> Password </label>
+        <input
+          type="password"
+          name="password"
+          id="register-password"
+          placeholder="***********"
+        />
+      </div>
+      <div class="inputGroup">
+        <label class="label" htmlFor="rePass"> Repeat Password </label>
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="***********"
+          id="confirm-password"
+        />
+      </div>
+    </div>
+    <button class="register-btn" type="submit" value="Register">
+      Register
+    </button>
+    <div class="actions">
+      <a routerLink="/login">
+        <div class="login">Login</div>
+      </a>
+      <a routerLink="/">
+        <div class="home">Home</div>
+      </a>
+    </div>
+  </form>
+</main>

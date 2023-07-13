@@ -1,0 +1,28 @@
+<header class="header">
+  <nav class="header-nav">
+    <img
+      class="game-reviews-logo"
+      src="../../../assets/images/game_reviews_logo.png"
+      alt="Game Reviews"
+    />
+    <ul>
+      <li class="nav-li">
+        <a routerLink="/">Home</a>
+      </li>
+      <li class="nav-li">
+        <a routerLink="/games-reviews-list">Reviews</a>
+      </li>
+      <li class="nav-li">
+        <a routerLink="/add-game-review">Add review</a>
+      </li>
+
+      <li *ngIf="isLogged">
+        <a routerLink="/logout" class="logOut-btn">Logout</a>
+      </li>
+
+      <li *ngIf="!isLogged">
+        <a routerLink="/login" class="signIn-btn">Sign In</a>
+      </li>
+    </ul>
+  </nav>
+</header>
