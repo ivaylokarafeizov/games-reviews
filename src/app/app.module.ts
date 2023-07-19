@@ -8,6 +8,7 @@ import { RecentReviewsListComponent } from './recent-reviews-list/recent-reviews
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,13 @@ import { AuthModule } from './auth/auth.module';
     ReviewsListComponent,
     AddReviewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, AuthModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    AuthModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
