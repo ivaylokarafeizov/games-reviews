@@ -1,6 +1,6 @@
 <main class="main">
-  <section class="cards" *ngFor="let review of reviewsList">
-    <section class="card-component">
+  <section class="cards">
+    <section class="card-component" *ngFor="let review of reviewsList">
       <div class="card-image">
         <img src="{{ review.imageUrl }}" alt="{{ review.title }}" />
       </div>

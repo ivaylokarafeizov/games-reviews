@@ -1,59 +1,12 @@
 <section class="cards">
-  <section class="card-component">
+  <section class="card-component" *ngFor="let review of reviewsList">
     <div class="card-image">
-      <img
-        src="https://wallpapers.com/images/featured/sekiro-shadows-die-twice-nf4vwi60jomeav8o.jpg"
-        alt="Sekiro: Shadows Die Twice"
-      />
+      <img src="{{ review.imageUrl }}" alt="{{ review.title }}" />
     </div>
     <div class="card-desc">
-      <h3>Sekiro: Shadows Die Twice</h3>
-      <h4>Genre: Action-adventure</h4>
-      <p>
-        Sekiro: Shadows Die Twice is an action-adventure game played from a
-        third-person view. Compared to FromSoftware's Dark Souls series, the
-        game features fewer...
-      </p>
-    </div>
-    <a routerLink="/" class="btn-a">
-      <div class="continue-btn">Read More</div>
-    </a>
-  </section>
-  <section class="card-component">
-    <div class="card-image">
-      <img
-        src="https://wallpapers.com/images/featured/sekiro-shadows-die-twice-nf4vwi60jomeav8o.jpg"
-        alt="Sekiro: Shadows Die Twice"
-      />
-    </div>
-    <div class="card-desc">
-      <h3>Sekiro: Shadows Die Twice</h3>
-      <h4>Genre: Action-adventure</h4>
-      <p>
-        Sekiro: Shadows Die Twice is an action-adventure game played from a
-        third-person view. Compared to FromSoftware's Dark Souls series, the
-        game features fewer...
-      </p>
-    </div>
-    <a routerLink="/" class="btn-a">
-      <div class="continue-btn">Read More</div>
-    </a>
-  </section>
-  <section class="card-component">
-    <div class="card-image">
-      <img
-        src="https://wallpapers.com/images/featured/sekiro-shadows-die-twice-nf4vwi60jomeav8o.jpg"
-        alt="Sekiro: Shadows Die Twice"
-      />
-    </div>
-    <div class="card-desc">
-      <h3>Sekiro: Shadows Die Twice</h3>
-      <h4>Genre: Action-adventure</h4>
-      <p>
-        Sekiro: Shadows Die Twice is an action-adventure game played from a
-        third-person view. Compared to FromSoftware's Dark Souls series, the
-        game features fewer...
-      </p>
+      <h3>{{ review.title }}</h3>
+      <h4>Genre: {{ review.genre }}</h4>
+      <p>{{ review.review.slice(0, 150) }}...</p>
     </div>
     <a routerLink="/" class="btn-a">
       <div class="continue-btn">Read More</div>
