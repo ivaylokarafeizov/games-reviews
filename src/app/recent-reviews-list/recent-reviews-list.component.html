@@ -6,9 +6,9 @@
     <div class="card-desc">
       <h3>{{ review.title }}</h3>
       <h4>Genre: {{ review.genre }}</h4>
-      <p>{{ review.review.slice(0, 150) }}...</p>
+      <p>{{ review.review | slice : 180 }}</p>
     </div>
-    <a routerLink="/" class="btn-a">
+    <a [routerLink]="'games-reviews-list/details/' + review._id" class="btn-a">
       <div class="continue-btn">Read More</div>
     </a>
   </section>

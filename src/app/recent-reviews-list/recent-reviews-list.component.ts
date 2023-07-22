@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { IReview } from '../interfaces/review';
 
@@ -7,8 +7,8 @@ import { IReview } from '../interfaces/review';
   templateUrl: './recent-reviews-list.component.html',
   styleUrls: ['./recent-reviews-list.component.css'],
 })
-export class RecentReviewsListComponent {
-  reviewsList: IReview[] | null = null;
+export class RecentReviewsListComponent implements OnInit {
+  reviewsList: IReview[] = [];
 
   constructor(private apiService: ApiService) {}
 
@@ -18,7 +18,7 @@ export class RecentReviewsListComponent {
         this.reviewsList = Object.values(value).slice(0, 3);
       },
       error: (error) => {
-        console.log(error);
+        alert(error);
       },
     });
   }
