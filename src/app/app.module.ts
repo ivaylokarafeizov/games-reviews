@@ -9,6 +9,8 @@ import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReviewDetailsComponent } from './review-details/review-details.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     RecentReviewsListComponent,
     ReviewsListComponent,
     AddReviewComponent,
+    ReviewDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     AuthModule,
     HttpClientModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
