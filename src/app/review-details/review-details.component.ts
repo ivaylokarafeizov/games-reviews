@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./review-details.component.css'],
 })
 export class ReviewDetailsComponent implements AfterViewInit {
+  isLoading: boolean = true;
   review: IReview[] = [];
 
   constructor(private apiService: ApiService, private location: Location) {}
@@ -21,9 +22,11 @@ export class ReviewDetailsComponent implements AfterViewInit {
     this.apiService.getReviewById(this.getReviewDetailsId()).subscribe({
       next: (value) => {
         this.review = Object.values(value);
+        this.isLoading = false;
       },
       error: (error) => {
         alert(error);
+        this.isLoading = false;
       },
     });
   }

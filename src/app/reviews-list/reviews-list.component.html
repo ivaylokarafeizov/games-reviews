@@ -1,4 +1,7 @@
 <main class="main">
+  <div *ngIf="isLoading">
+    <app-loader />
+  </div>
   <section class="cards">
     <section class="card-component" *ngFor="let review of reviewsList">
       <div class="card-image">

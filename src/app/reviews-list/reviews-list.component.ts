@@ -8,6 +8,7 @@ import { IReview } from '../interfaces/review';
   styleUrls: ['./reviews-list.component.css'],
 })
 export class ReviewsListComponent implements OnInit {
+  isLoading: boolean = true;
   reviewsList: IReview[] = [];
 
   constructor(private apiService: ApiService) {}
@@ -16,9 +17,11 @@ export class ReviewsListComponent implements OnInit {
     this.apiService.getReviews().subscribe({
       next: (value) => {
         this.reviewsList = Object.values(value);
+        this.isLoading = false;
       },
       error: (error) => {
         alert(error);
+        this.isLoading = false;
       },
     });
   }

@@ -1,4 +1,7 @@
 <main class="main">
+  <div *ngIf="isLoading">
+    <app-loader />
+  </div>
   <section class="card-component">
     <div class="card-img">
       <img src="{{ review[4] }}" alt="{{ review[1] }}" />
