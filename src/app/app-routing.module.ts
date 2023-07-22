@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { AddReviewComponent } from './add-review/add-review.component';
+import { ReviewDetailsComponent } from './review-details/review-details.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,14 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
-  { path: 'games-reviews-list', component: ReviewsListComponent },
+  {
+    path: 'games-reviews-list',
+    component: ReviewsListComponent,
+  },
+  {
+    path: 'games-reviews-list/details/:id',
+    component: ReviewDetailsComponent,
+  },
   { path: 'add-game-review', component: AddReviewComponent },
 ];
 
