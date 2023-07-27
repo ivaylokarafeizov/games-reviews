@@ -16,8 +16,8 @@
         <a routerLink="/add-game-review">Add review</a>
       </li>
 
-      <li *ngIf="isLogged">
-        <a routerLink="/logout" class="logOut-btn">Logout</a>
+      <li *ngIf="isLogged" (click)="logout()">
+        <a routerLink="/" class="logOut-btn">Logout</a>
       </li>
 
       <li *ngIf="!isLogged">

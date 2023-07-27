@@ -1,45 +1,53 @@
 <main class="main">
-  <form class="form" id="register" method="post">
+  <form
+    class="form"
+    id="register"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+  >
     <h3>Register</h3>
-    <label class="label" htmlFor="username"> Username </label>
+    <label class="label" for="username"> Username </label>
     <input
       class="normal"
       type="text"
       id="username"
       name="username"
       placeholder="Bruce Wayne"
+      formControlName="username"
     />
-    <label class="label" htmlFor="email"> Email </label>
+    <label class="label" for="email"> Email </label>
     <input
       class="normal"
       type="email"
       id="email"
       name="email"
       placeholder="maria@email.com"
+      formControlName="email"
     />
     <div class="double">
       <div class="inputGroup">
-        <label class="label" htmlFor="password"> Password </label>
+        <label class="label" for="password"> Password </label>
         <input
           type="password"
           name="password"
           id="register-password"
           placeholder="***********"
+          formControlName="password"
         />
       </div>
       <div class="inputGroup">
-        <label class="label" htmlFor="rePass"> Repeat Password </label>
+        <label class="label" for="rePass"> Repeat Password </label>
         <input
           type="password"
-          name="confirmPassword"
+          name="repeatPassword"
           placeholder="***********"
-          id="confirm-password"
+          id="repeatPassword"
+          formControlName="repeatPassword"
+          #repeatedPassword=""
         />
       </div>
     </div>
-    <button class="register-btn" type="submit" value="Register">
-      Register
-    </button>
+    <button class="register-btn" type="submit">Register</button>
     <div class="actions">
       <a routerLink="/login">
         <div class="login">Login</div>

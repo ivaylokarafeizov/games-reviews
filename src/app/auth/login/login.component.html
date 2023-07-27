@@ -1,21 +1,33 @@
 <main class="main">
-  <form class="form" id="login" method="POST">
+  <form
+    class="form"
+    id="login"
+    #loginForm="ngForm"
+    (ngSubmit)="onSubmit(loginForm)"
+  >
     <h3>Login</h3>
-    <label class="label" htmlFor="email">Email</label>
+    <label class="label" for="email">Email</label>
     <input
       type="email"
       id="email"
       placeholder="bruceWayne@abv.bg"
       name="email"
+      #inputEmail="ngModel"
+      ngModel
+      email
+      required
     />
-    <label class="label" htmlFor="password">Password</label>
+    <label class="label" for="password">Password</label>
     <input
       type="password"
       placeholder="********"
       id="password"
       name="password"
+      #inputPassword="ngModel"
+      ngModel
+      minlength="5"
     />
-    <button type="submit" value="Login">Log In</button>
+    <button type="submit">Log In</button>
     <div class="actions">
       <a routerLink="/register">
         <div class="create-acc">Create account</div>
