@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ReviewsService } from '../services/reviews/reviews.service';
 import { IReview } from '../interfaces/review';
 
 @Component({
@@ -11,10 +11,10 @@ export class RecentReviewsListComponent implements OnInit {
   isLoading: boolean = true;
   reviewsList: IReview[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private reviewsService: ReviewsService) {}
 
   ngOnInit(): void {
-    this.apiService.getReviews().subscribe({
+    this.reviewsService.getReviews().subscribe({
       next: (value) => {
         this.reviewsList = Object.values(value).slice(0, 3);
         this.isLoading = false;

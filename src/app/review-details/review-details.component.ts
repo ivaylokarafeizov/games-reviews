@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ReviewsService } from '../services/reviews/reviews.service';
 import { IReview } from '../interfaces/review';
 import { Location } from '@angular/common';
 
@@ -12,14 +12,17 @@ export class ReviewDetailsComponent implements AfterViewInit {
   isLoading: boolean = true;
   review: IReview[] = [];
 
-  constructor(private apiService: ApiService, private location: Location) {}
+  constructor(
+    private reviewsService: ReviewsService,
+    private location: Location
+  ) {}
 
   getReviewDetailsId(): string {
     return this.location.path().split('details/')[1];
   }
 
   ngAfterViewInit(): void {
-    this.apiService.getReviewById(this.getReviewDetailsId()).subscribe({
+    this.reviewsService.getReviewById(this.getReviewDetailsId()).subscribe({
       next: (value) => {
         this.review = Object.values(value);
         this.isLoading = false;
