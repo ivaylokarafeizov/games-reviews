@@ -1,0 +1,15 @@
+.error-component {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 25px;
+}
+
+.error-message {
+  color: #721c24;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
