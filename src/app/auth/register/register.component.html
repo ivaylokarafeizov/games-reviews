@@ -6,6 +6,7 @@
     [formGroup]="registerForm"
     (ngSubmit)="onSubmit()"
   >
+    <app-auth-error-display *ngIf="authService.httpError" />
     <h3>Register</h3>
     <label class="label" for="username"> Username </label>
     <input

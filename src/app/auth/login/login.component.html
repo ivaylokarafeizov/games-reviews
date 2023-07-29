@@ -1,11 +1,13 @@
 <main class="main">
   <app-loader *ngIf="authService.isLoading" />
+
   <form
     class="form"
     id="login"
     #loginForm="ngForm"
     (ngSubmit)="onSubmit(loginForm)"
   >
+    <app-auth-error-display *ngIf="authService.httpError" />
     <h3>Login</h3>
     <label class="label" for="email">Email</label>
     <input
