@@ -9,7 +9,7 @@
   </section>
   <h1 class="recent">Recent</h1>
   <app-recent-reviews-list />
-  <section class="benefits" *ngIf="!isLogged">
+  <section class="benefits" *ngIf="!user">
     <h3>
       <a routerLink="/login">Sign in</a> or
       <a routerLink="/register">register</a> in order to access:
