@@ -1,7 +1,5 @@
 <section class="cards">
-  <div *ngIf="isLoading">
-    <app-loader />
-  </div>
+  <app-loader *ngIf="isLoading" />
   <section class="card-component" *ngFor="let review of reviewsList">
     <div class="card-image">
       <img src="{{ review.imageUrl }}" alt="{{ review.title }}" />
