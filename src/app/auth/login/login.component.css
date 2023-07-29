@@ -13,7 +13,7 @@
 }
 
 .form {
-  height: 520px;
+  height: auto;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -44,13 +44,13 @@ form * {
 
 .label {
   display: block;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 16px;
   font-weight: 500;
 }
 
 .form button {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 100%;
   background-color: white;
   color: #080710;
@@ -106,4 +106,10 @@ input {
 
 .actions a {
   text-decoration: none;
+}
+
+.errors-div .error {
+  margin-top: 10px;
+  color: red;
+  text-align: center;
 }

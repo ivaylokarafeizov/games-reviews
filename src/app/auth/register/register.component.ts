@@ -11,11 +11,10 @@ import { matchingPasswordsValidator } from '../../shared/validators/matching-pas
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  // register form group
   registerForm = this.fb.group({
-    username: ['', [Validators.minLength(4), Validators.required]],
+    username: ['', [Validators.minLength(5), Validators.required]],
     email: ['', [Validators.email, Validators.required]],
-    password: ['', [Validators.minLength(6), Validators.required]],
+    password: ['', [Validators.minLength(5), Validators.required]],
     repeatPassword: [
       '',
       [

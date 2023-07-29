@@ -1,4 +1,5 @@
 <main class="main">
+  <app-loader *ngIf="authService.isLoading" />
   <form
     class="form"
     id="register"
@@ -13,8 +14,24 @@
       id="username"
       name="username"
       placeholder="Bruce Wayne"
+      autocomplete="username"
       formControlName="username"
+      required
     />
+    <div *ngIf="registerForm.get('username')?.touched" class="errors-div">
+      <div
+        *ngIf="registerForm.get('username')?.errors?.['required']"
+        class="error"
+      >
+        Username is required!
+      </div>
+      <div
+        *ngIf="registerForm.get('username')?.errors?.['minlength']"
+        class="error"
+      >
+        Username requires at least 5 characters.
+      </div>
+    </div>
     <label class="label" for="email"> Email </label>
     <input
       class="normal"
@@ -23,7 +40,19 @@
       name="email"
       placeholder="maria@email.com"
       formControlName="email"
+      required
     />
+    <div *ngIf="registerForm.get('email')?.touched" class="errors-div">
+      <div
+        *ngIf="registerForm.get('email')?.errors?.['required']"
+        class="error"
+      >
+        Email is required!
+      </div>
+      <div *ngIf="registerForm.get('email')?.errors?.['email']" class="error">
+        Email is invalid!
+      </div>
+    </div>
     <div class="double">
       <div class="inputGroup">
         <label class="label" for="password"> Password </label>
@@ -33,7 +62,22 @@
           id="register-password"
           placeholder="***********"
           formControlName="password"
+          required
         />
+        <div *ngIf="registerForm.get('password')?.touched" class="errors-div">
+          <div
+            *ngIf="registerForm.get('password')?.errors?.['required']"
+            class="error"
+          >
+            Password is required!
+          </div>
+          <div
+            *ngIf="registerForm.get('password')?.errors?.['minlength']"
+            class="error"
+          >
+            Password requires at least 5 characters.
+          </div>
+        </div>
       </div>
       <div class="inputGroup">
         <label class="label" for="rePass"> Repeat Password </label>
@@ -43,8 +87,20 @@
           placeholder="***********"
           id="repeatPassword"
           formControlName="repeatPassword"
-          #repeatedPassword=""
+          #repeatPassword=""
+          required
         />
+        <div
+          *ngIf="registerForm.get('repeatPassword')?.touched"
+          class="errors-div"
+        >
+          <div
+            class="error"
+            *ngIf="registerForm.get('repeatPassword')?.errors?.['matchPassword']"
+          >
+            Passwords do not match!
+          </div>
+        </div>
       </div>
     </div>
     <button class="register-btn" type="submit">Register</button>

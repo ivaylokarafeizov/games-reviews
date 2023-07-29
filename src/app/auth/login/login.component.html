@@ -1,4 +1,5 @@
 <main class="main">
+  <app-loader *ngIf="authService.isLoading" />
   <form
     class="form"
     id="login"
@@ -17,6 +18,14 @@
       email
       required
     />
+    <div *ngIf="inputEmail.touched" class="errors-div">
+      <div *ngIf="inputEmail.errors?.['required']" class="error">
+        Email is required!
+      </div>
+      <div *ngIf="inputEmail.errors?.['email']" class="error">
+        Email is invalid!
+      </div>
+    </div>
     <label class="label" for="password">Password</label>
     <input
       type="password"
@@ -26,7 +35,16 @@
       #inputPassword="ngModel"
       ngModel
       minlength="5"
+      required
     />
+    <div *ngIf="inputPassword.touched" class="errors-div">
+      <div *ngIf="inputPassword.errors?.['required']" class="error">
+        Password is required!
+      </div>
+      <div *ngIf="inputPassword.errors?.['minlength']" class="error">
+        Password requires at least 5 characters.
+      </div>
+    </div>
     <button type="submit">Log In</button>
     <div class="actions">
       <a routerLink="/register">
