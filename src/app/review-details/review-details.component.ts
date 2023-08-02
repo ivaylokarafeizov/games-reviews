@@ -1,7 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ReviewsService } from '../services/reviews/reviews.service';
 import { IReview } from '../interfaces/review';
-import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-review-details',
@@ -14,15 +14,13 @@ export class ReviewDetailsComponent implements AfterViewInit {
 
   constructor(
     private reviewsService: ReviewsService,
-    private location: Location
+    private route: ActivatedRoute
   ) {}
 
-  getReviewDetailsId(): string {
-    return this.location.path().split('details/')[1];
-  }
+  id = this.route.snapshot.paramMap.get('id') as string;
 
   ngAfterViewInit(): void {
-    this.reviewsService.getReviewById(this.getReviewDetailsId()).subscribe({
+    this.reviewsService.getReviewById(this.id).subscribe({
       next: (value) => {
         this.review = Object.values(value);
         this.isLoading = false;
