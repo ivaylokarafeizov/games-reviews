@@ -39,11 +39,25 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const { username, email, password } = this.registerForm.value as {
+    const { username, email, password, repeatPassword } = this.registerForm
+      .value as {
       username: string;
       email: string;
       password: string;
+      repeatPassword: string;
     };
+
+    if (
+      (!username || username.trim().length === 0) &&
+      (!password || password.trim().length === 0) &&
+      (!repeatPassword || repeatPassword.trim().length === 0)
+    ) {
+      alert('Please enter data in the fields!');
+
+      this.registerForm.reset();
+
+      return;
+    }
 
     this.authService
       .register(username, email, password)

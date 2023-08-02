@@ -1,36 +1,103 @@
 <main id="create-page" class="main">
-  <form id="create" class="create-form" method="post">
+  <app-loader *ngIf="isLoading" />
+  <form
+    class="create-form"
+    #createForm="ngForm"
+    (ngSubmit)="onSubmit(createForm)"
+  >
     <h3>Create Review</h3>
 
-    <label for="name" class="label"> Name: </label>
+    <label for="name" class="label"> Full Name </label>
     <input
       type="text"
-      id="name"
       name="name"
-      placeholder="Enter your first and last name..."
+      placeholder="First and last name..."
+      #inputName="ngModel"
+      minlength="5"
+      ngModel
+      required
     />
+    <div *ngIf="inputName.touched" class="errors-div">
+      <div class="error" *ngIf="inputName.errors?.['minlength']">
+        Minimum 5 characters are required!
+      </div>
+      <div class="error" *ngIf="inputName.errors?.['required']">
+        Name is required!
+      </div>
+    </div>
 
-    <label for="location" class="label"> Location: </label>
+    <label for="title" class="label"> Title </label>
     <input
       type="text"
-      id="location"
-      name="location"
-      placeholder="Enter your location..."
+      name="title"
+      placeholder="Game Title..."
+      minlength="3"
+      #inputTitle="ngModel"
+      ngModel
+      required
     />
+    <div *ngIf="inputTitle.touched" class="errors-div">
+      <div class="error" *ngIf="inputTitle.errors?.['minlength']">
+        Minimum 3 characters are required!
+      </div>
+      <div class="error" *ngIf="inputTitle.errors?.['required']">
+        Title is required!
+      </div>
+    </div>
 
-    <label for="title" class="label"> Title: </label>
-    <input type="text" id="title" name="title" placeholder="Enter a title..." />
-
-    <label for="imageUrl" class="label"> Image: </label>
+    <label for="genre" class="label"> Genre </label>
     <input
       type="text"
-      id="imageUrl"
+      name="genre"
+      placeholder="Game Genre..."
+      minlength="3"
+      #inputGenre="ngModel"
+      ngModel
+      required
+    />
+    <div *ngIf="inputGenre.touched" class="errors-div">
+      <div class="error" *ngIf="inputGenre.errors?.['minlength']">
+        Minimum 3 characters are required!
+      </div>
+      <div class="error" *ngIf="inputGenre.errors?.['required']">
+        Genre is required!
+      </div>
+    </div>
+
+    <label for="review" class="label"> Review </label>
+    <input
+      type="text"
+      name="review"
+      placeholder="Game Review..."
+      minlength="50"
+      #inputReview="ngModel"
+      ngModel
+      required
+    />
+    <div *ngIf="inputReview.touched" class="errors-div">
+      <div class="error" *ngIf="inputReview.errors?.['minlength']">
+        Minimum 50 characters are required!
+      </div>
+      <div class="error" *ngIf="inputReview.errors?.['required']">
+        Review is required!
+      </div>
+    </div>
+
+    <label for="imageUrl" class="label"> Image </label>
+    <input
+      type="text"
       name="imageUrl"
-      placeholder="Upload a photo..."
+      placeholder="Image Url..."
+      #inputImageUrl="ngModel"
+      ngModel
+      required
     />
+    <div *ngIf="inputImageUrl.touched" class="errors-div">
+      <div class="error" *ngIf="inputImageUrl.errors?.['required']">
+        Image is required!
+      </div>
+    </div>
 
-    <button type="submit" class="create-btn" value="Create Post">
-      Create Review
-    </button>
+    <button type="submit" class="create-btn">Create Review</button>
   </form>
 </main>

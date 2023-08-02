@@ -10,14 +10,14 @@
   background-color: #edd5d5;
   font-family: Helvetica, sans-serif;
   position: relative;
-  height: 750px;
+  height: 950px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .create-form {
-  height: 620px;
+  height: auto;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -81,4 +81,11 @@ input {
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
+}
+
+.errors-div .error {
+  position: relative;
+  margin-top: 10px;
+  color: red;
+  text-align: center;
 }

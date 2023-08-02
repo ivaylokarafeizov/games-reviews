@@ -22,10 +22,13 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const formValues: { email: string; password: string } = form.value;
+    const { email, password } = form.value as {
+      email: string;
+      password: string;
+    };
 
     this.authService
-      .login(formValues.email, formValues.password)
+      .login(email, password)
       .pipe(finalize(() => form.reset()))
       .subscribe(() => this.router.navigate(['/']));
   }
