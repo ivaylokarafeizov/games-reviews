@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ReviewsListComponent } from './reviews/reviews-list/reviews-list.component';
 import { AddReviewComponent } from './reviews/add-review/add-review.component';
 import { ReviewDetailsComponent } from './reviews/review-details/review-details.component';
+import { EditReviewComponent } from './reviews/edit-review/edit-review.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'games-reviews-list/details/:id',
     component: ReviewDetailsComponent,
+  },
+  {
+    path: 'games-reviews-list/edit/:id',
+    component: EditReviewComponent,
   },
   { path: 'add-game-review', component: AddReviewComponent },
 ];
