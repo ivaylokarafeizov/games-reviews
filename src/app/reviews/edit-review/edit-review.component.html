@@ -1,0 +1,89 @@
+<main id="edit-page" class="main">
+  <form class="edit-form" [formGroup]="editForm" (ngSubmit)="onEdit()">
+    <h3>Edit Review</h3>
+
+    <label for="name" class="label"> Full Name </label>
+    <input
+      type="text"
+      name="name"
+      placeholder="First and last name..."
+      formControlName="name"
+      required
+    />
+    <div *ngIf="editForm.get('name')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('name')?.errors?.['minlength']">
+        Minimum 5 characters are required!
+      </div>
+      <div class="error" *ngIf="editForm.get('name')?.errors?.['required']">
+        Name is required!
+      </div>
+    </div>
+
+    <label for="title" class="label"> Title </label>
+    <input
+      type="text"
+      name="title"
+      placeholder="Game Title..."
+      formControlName="title"
+      required
+    />
+    <div *ngIf="editForm.get('title')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('title')?.errors?.['minlength']">
+        Minimum 3 characters are required!
+      </div>
+      <div class="error" *ngIf="editForm.get('title')?.errors?.['required']">
+        Title is required!
+      </div>
+    </div>
+
+    <label for="genre" class="label"> Genre </label>
+    <input
+      type="text"
+      name="genre"
+      placeholder="Game Genre..."
+      formControlName="genre"
+      required
+    />
+    <div *ngIf="editForm.get('genre')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('genre')?.errors?.['minlength']">
+        Minimum 3 characters are required!
+      </div>
+      <div class="error" *ngIf="editForm.get('genre')?.errors?.['required']">
+        Genre is required!
+      </div>
+    </div>
+
+    <label for="review" class="label"> Review </label>
+    <input
+      type="text"
+      name="review"
+      placeholder="Game Review..."
+      formControlName="review"
+      required
+    />
+    <div *ngIf="editForm.get('review')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('review')?.errors?.['minlength']">
+        Minimum 50 characters are required!
+      </div>
+      <div class="error" *ngIf="editForm.get('review')?.errors?.['required']">
+        Review is required!
+      </div>
+    </div>
+
+    <label for="imageUrl" class="label"> Image </label>
+    <input
+      type="text"
+      name="imageUrl"
+      placeholder="Image Url..."
+      formControlName="imageUrl"
+      required
+    />
+    <div *ngIf="editForm.get('imageUrl')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('imageUrl')?.errors?.['required']">
+        Image is required!
+      </div>
+    </div>
+
+    <button type="submit" class="edit-btn">Edit Review</button>
+  </form>
+</main>

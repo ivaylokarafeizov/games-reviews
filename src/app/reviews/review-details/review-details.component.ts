@@ -49,4 +49,10 @@ export class ReviewDetailsComponent implements AfterViewInit {
       alert('No id provided. Cannot delete the review!');
     }
   }
+
+  onEditReview(reviewId: string | undefined) {
+    if (reviewId) {
+      this.router.navigate(['games-reviews-list/edit', reviewId]);
+    }
+  }
 }

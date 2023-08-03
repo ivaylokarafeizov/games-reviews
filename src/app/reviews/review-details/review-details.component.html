@@ -7,7 +7,7 @@
       <img src="{{ review?.imageUrl }}" alt="{{ review?.title }}" />
     </div>
     <div class="icons">
-      <button class="edit-btn">
+      <button class="edit-btn" (click)="onEditReview(review?._id)">
         <i class="fas fa-edit"></i>
       </button>
       <button class="delete-btn" (click)="onDeleteReview(review?._id)">
