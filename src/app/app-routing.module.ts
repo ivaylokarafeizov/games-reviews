@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ReviewsListComponent } from './reviews-list/reviews-list.component';
-import { AddReviewComponent } from './add-review/add-review.component';
-import { ReviewDetailsComponent } from './review-details/review-details.component';
+import { ReviewsListComponent } from './reviews/reviews-list/reviews-list.component';
+import { AddReviewComponent } from './reviews/add-review/add-review.component';
+import { ReviewDetailsComponent } from './reviews/review-details/review-details.component';
 
 const routes: Routes = [
   {
