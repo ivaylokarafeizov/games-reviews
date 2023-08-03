@@ -15,6 +15,9 @@ export class ReviewsService implements OnDestroy {
   subscription: Subscription | undefined;
 
   private _reviews$ = new BehaviorSubject<IReview[]>([]);
+  private book$$ = new BehaviorSubject<IReview | undefined>(undefined);
+  public book$ = this.book$$.asObservable();
+  book: IReview | undefined;
 
   constructor(
     private httpClient: HttpClient,
@@ -49,5 +52,9 @@ export class ReviewsService implements OnDestroy {
 
   deleteReviewById(id: string): Observable<void> {
     return this.httpClient.delete<void>(apiURL + '/reviews/' + id);
+  }
+
+  editReviewById(reviewId: string, data: IReview) {
+    return this.httpClient.put<IReview>(`${apiURL}/reviews/${reviewId}`, data);
   }
 }
