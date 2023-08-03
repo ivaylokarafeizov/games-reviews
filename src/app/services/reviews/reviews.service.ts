@@ -47,15 +47,7 @@ export class ReviewsService implements OnDestroy {
       });
   }
 
-  deleteReviewById(id: string): void {
-    this.subscription = this.httpClient
-      .delete<IReview>(apiURL + '/reviews/' + id)
-      .subscribe((deletedReview) => {
-        this._reviews$.next(
-          this._reviews$
-            .getValue()
-            .filter((curr) => curr._id !== deletedReview._id)
-        );
-      });
+  deleteReviewById(id: string): Observable<void> {
+    return this.httpClient.delete<void>(apiURL + '/reviews/' + id);
   }
 }
