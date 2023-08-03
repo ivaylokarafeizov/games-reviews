@@ -1,0 +1,60 @@
+<main class="main">
+  <div *ngIf="isLoading" class="loader">
+    <app-loader />
+  </div>
+  <section class="card-component">
+    <div class="card-img">
+      <img src="{{ review?.imageUrl }}" alt="{{ review?.title }}" />
+    </div>
+    <div class="icons">
+      <button class="edit-btn">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="delete-btn" (click)="onDeleteReview(review?._id)">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+    <div class="card-desc">
+      <h3>{{ review?.title }}</h3>
+      <h4>Genre: {{ review?.genre }}</h4>
+      <h5>Review by {{ review?.name }}</h5>
+      <p>
+        {{ review?.review }}
+      </p>
+    </div>
+    <section class="comment-form-section">
+      <div class="comment-form">
+        <h4>Add a Comment</h4>
+        <form>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </section>
+    <section class="comments-section">
+      <div class="comment">
+        <div class="comment-header">
+          <h5>Comment by John Doe</h5>
+          <div class="comment-btns">
+            <button class="edit-btn">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="delete-btn">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <div class="comment-content">
+          <p>This is the comment text...</p>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>

@@ -1,0 +1,214 @@
+.main {
+  height: auto;
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(255, 255, 255);
+  background-color: #edd5d5;
+  font-family: "Anonymous Pro", monospace;
+}
+
+.card-component {
+  height: auto;
+  margin-top: 60px;
+  color: #000;
+  background-color: #ffffff;
+  width: 1366px;
+  border-radius: 20px;
+}
+
+.card-img img {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 768px;
+  width: 1366px;
+}
+
+.card-desc {
+  padding: 20px 80px;
+  text-align: center;
+}
+
+.card-desc h3 {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.card-desc h4 {
+  padding-top: 15px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.card-desc h5 {
+  padding-top: 15px;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.card-desc p {
+  padding: 15px 0;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+
+.loader {
+  margin-top: 50px;
+}
+
+.card-img {
+  position: relative;
+}
+
+.icons {
+  position: absolute;
+  top: 130px;
+  right: 100px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 42px;
+}
+
+.icons .edit-btn,
+.icons .delete-btn {
+  padding: 0 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+}
+
+.icons .fa-trash {
+  color: red;
+}
+
+.icons .fa-edit {
+  color: green;
+}
+
+.fa-pen-alt::before {
+  content: "\f040";
+}
+
+.fa-trash::before {
+  content: "\f2ed";
+}
+
+.comments-section {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.comment {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.comment-header h5 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.comment-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.comment-header button {
+  padding: 0 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+}
+
+.comment-header .fa-trash {
+  color: red;
+}
+
+.comment-header .fa-edit {
+  color: green;
+}
+
+.comment-form {
+  align-self: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 15px;
+  width: 95%;
+}
+
+.comment-form h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.comment-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form .form-group {
+  margin-bottom: 15px;
+}
+
+.comment-form label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.comment-form input,
+.comment-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  height: 15px;
+}
+
+.comment-form-section .comment-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.comment-form .submit-btn {
+  width: 50%;
+  align-self: center;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form .submit-btn:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,18 @@
+<main class="main">
+  <app-loader *ngIf="isLoading" />
+  <section class="cards">
+    <section class="card-component" *ngFor="let review of reviewsList">
+      <div class="card-image">
+        <img src="{{ review.imageUrl }}" alt="{{ review.title }}" />
+      </div>
+      <div class="card-desc">
+        <h3>{{ review.title }}</h3>
+        <h4>Genre: {{ review.genre }}</h4>
+        <p class="card-review">{{ review.review | slice : 300 }}</p>
+      </div>
+      <a [routerLink]="'details/' + review._id" class="btn-a">
+        <div class="continue-btn">Read More</div>
+      </a>
+    </section>
+  </section>
+</main>
