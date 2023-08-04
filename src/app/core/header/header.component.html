@@ -12,7 +12,7 @@
       <li class="nav-li">
         <a routerLink="/games-reviews-list">Reviews</a>
       </li>
-      <li class="nav-li">
+      <li class="nav-li" *ngIf="authService.isAuthenticated()">
         <a routerLink="/add-game-review">Add review</a>
       </li>
 
