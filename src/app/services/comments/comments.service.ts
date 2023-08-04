@@ -29,6 +29,12 @@ export class CommentsService {
     return this.httpClient.get<IComment[]>(apiURL + '/comments/' + id);
   }
 
+  getCommentById(reviewId: string, commentId: string): Observable<IComment> {
+    return this.httpClient.get<IComment>(
+      `${apiURL}/comments/${reviewId}/${commentId}`
+    );
+  }
+
   createComment(comment: IComment, reviewId: string): void {
     const commentPayload = {
       ...comment,
@@ -49,7 +55,7 @@ export class CommentsService {
     );
   }
 
-  editCommentById(commentId: string, reviewId: string, data: IComment) {
+  editCommentById(reviewId: string, commentId: string, data: IComment) {
     return this.httpClient.put<IComment>(
       `${apiURL}/comments/${reviewId}/${commentId}`,
       data
