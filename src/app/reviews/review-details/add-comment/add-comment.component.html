@@ -32,15 +32,15 @@
       name="comment"
       placeholder="Comment here..."
       minlength="5"
-      #inputTitle="ngModel"
+      #inputComment="ngModel"
       ngModel
       required
     />
-    <div *ngIf="inputTitle.touched" class="errors-div">
-      <div class="error" *ngIf="inputTitle.errors?.['minlength']">
+    <div *ngIf="inputComment.touched" class="errors-div">
+      <div class="error" *ngIf="inputComment.errors?.['minlength']">
         Minimum 5 characters are required!
       </div>
-      <div class="error" *ngIf="inputTitle.errors?.['required']">
+      <div class="error" *ngIf="inputComment.errors?.['required']">
         Comment is required!
       </div>
     </div>
