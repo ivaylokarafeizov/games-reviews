@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./comments-section.component.css'],
 })
 export class CommentsSectionComponent implements OnInit {
-  commentsList: IComment[] | undefined = undefined;
+  commentsList!: IComment[];
   loggedUserId = this.authService.loggedUser?._id as string;
 
   constructor(
@@ -25,16 +25,28 @@ export class CommentsSectionComponent implements OnInit {
   ngOnInit(): void {
     this.commentsService.getCommentsById(this.reviewId).subscribe({
       next: (value) => {
-        if (value !== undefined) {
+        if (value !== null) {
           this.commentsList = Object.values(value);
         } else {
           this.commentsList = [];
+          return;
         }
       },
       error: (error) => {
         alert(error);
       },
     });
+  }
+
+  onEditComment(id: string): void {
+    if (id) {
+      this.router.navigate([
+        'games-reviews-list/edit-comment/' + this.reviewId + '/' + id,
+      ]);
+    } else {
+      alert('No id provided. Cannot edit the review!');
+      return;
+    }
   }
 
   onDeleteComment(id?: string): void {
@@ -51,15 +63,6 @@ export class CommentsSectionComponent implements OnInit {
       });
     } else {
       alert('No id provided. Cannot delete the review!');
-      return;
-    }
-  }
-
-  onEditComment(id?: string): void {
-    if (id) {
-      this.router.navigate(['games-reviews-list/edit-comment/', id]);
-    } else {
-      alert('No id provided. Cannot edit the review!');
       return;
     }
   }
