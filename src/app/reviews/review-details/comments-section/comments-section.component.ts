@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments/comments.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { IComment } from 'src/app/interfaces/comment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-comments-section',
@@ -16,7 +16,8 @@ export class CommentsSectionComponent implements OnInit {
   constructor(
     private commentsService: CommentsService,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   reviewId = this.route.snapshot.paramMap.get('id') as string;
@@ -50,6 +51,15 @@ export class CommentsSectionComponent implements OnInit {
       });
     } else {
       alert('No id provided. Cannot delete the review!');
+      return;
+    }
+  }
+
+  onEditComment(id?: string): void {
+    if (id) {
+      this.router.navigate(['games-reviews-list/edit-comment/', id]);
+    } else {
+      alert('No id provided. Cannot edit the review!');
       return;
     }
   }
