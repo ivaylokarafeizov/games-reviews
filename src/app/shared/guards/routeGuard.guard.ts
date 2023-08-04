@@ -1,9 +1,4 @@
-import {
-  ActivatedRouteSnapshot,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { Router, UrlTree } from '@angular/router';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
@@ -12,7 +7,7 @@ import { AuthService } from '../../services/auth/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements OnDestroy {
+export class RouteGuard implements OnDestroy {
   subscription: Subscription | undefined;
 
   constructor(private authService: AuthService, private router: Router) {}

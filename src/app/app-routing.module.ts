@@ -5,7 +5,7 @@ import { ReviewsListComponent } from './reviews/reviews-list/reviews-list.compon
 import { AddReviewComponent } from './reviews/add-review/add-review.component';
 import { ReviewDetailsComponent } from './reviews/review-details/review-details.component';
 import { EditReviewComponent } from './reviews/edit-review/edit-review.component';
-import { AuthGuard } from './shared/guards/authGuard.guard';
+import { RouteGuard } from './shared/guards/routeGuard.guard';
 
 const routes: Routes = [
   {
@@ -28,12 +28,12 @@ const routes: Routes = [
   {
     path: 'games-reviews-list/edit/:id',
     component: EditReviewComponent,
-    canActivate: [AuthGuard],
+    canActivate: [RouteGuard],
   },
   {
     path: 'add-game-review',
     component: AddReviewComponent,
-    canActivate: [AuthGuard],
+    canActivate: [RouteGuard],
   },
 ];
 
