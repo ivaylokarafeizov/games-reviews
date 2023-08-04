@@ -1,0 +1,43 @@
+<main id="edit-page" class="main">
+  <app-loader *ngIf="isLoading" />
+  <form class="edit-form" [formGroup]="editForm" (ngSubmit)="onEditComment()">
+    <h3>Edit Comment</h3>
+
+    <label for="name" class="label"> Name </label>
+    <input
+      type="text"
+      name="name"
+      placeholder="First and last name..."
+      formControlName="name"
+      required
+    />
+    <div *ngIf="editForm.get('name')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('name')?.errors?.['minlength']">
+        Minimum 5 characters are required!
+      </div>
+      <div class="error" *ngIf="editForm.get('name')?.errors?.['required']">
+        Name is required!
+      </div>
+    </div>
+
+    <label for="comment" class="label"> Comment </label>
+    <input
+      type="text"
+      name="comment"
+      placeholder="Comment here..."
+      minlength="5"
+      formControlName="comment"
+      required
+    />
+    <div *ngIf="editForm.get('comment')?.touched" class="errors-div">
+      <div class="error" *ngIf="editForm.get('comment')?.errors?.['minlength']">
+        Minimum 5 characters are required!
+      </div>
+      <div class="error" *ngIf="editForm.get('comment')?.errors?.['required']">
+        Comment is required!
+      </div>
+    </div>
+
+    <button type="submit" class="edit-btn">Submit</button>
+  </form>
+</main>
