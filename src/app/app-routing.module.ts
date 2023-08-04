@@ -38,7 +38,7 @@ const routes: Routes = [
     canActivate: [RouteGuard],
   },
   {
-    path: 'games-reviews-list/edit-comment/:id',
+    path: 'games-reviews-list/edit-comment/:reviewId/:id',
     component: EditCommentComponent,
     canActivate: [RouteGuard],
   },
