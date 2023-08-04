@@ -16,7 +16,7 @@ export class CommentsService {
     private authService: AuthService
   ) {}
 
-  getComments(): Observable<IComment[]> {
-    return this.httpClient.get<IComment[]>(apiURL + '/comments');
+  getCommentsById(id: string): Observable<IComment[]> {
+    return this.httpClient.get<IComment[]>(apiURL + '/comments/' + id);
   }
 }
