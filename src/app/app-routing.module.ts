@@ -6,6 +6,7 @@ import { AddReviewComponent } from './reviews/add-review/add-review.component';
 import { ReviewDetailsComponent } from './reviews/review-details/review-details.component';
 import { EditReviewComponent } from './reviews/edit-review/edit-review.component';
 import { RouteGuard } from './shared/guards/routeGuard.guard';
+import { AddCommentComponent } from './reviews/review-details/add-comment/add-comment.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'games-reviews-list/edit/:id',
     component: EditReviewComponent,
+    canActivate: [RouteGuard],
+  },
+  {
+    path: 'games-reviews-list/add-comment/:id',
+    component: AddCommentComponent,
     canActivate: [RouteGuard],
   },
   {
