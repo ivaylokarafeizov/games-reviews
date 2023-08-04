@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditReviewComponent implements OnInit {
   isLoading: boolean = false;
   review!: IReview;
-  reviewId: string | null = null;
+  reviewId = this.activatedRoute.snapshot.paramMap.get('id') as string;
 
   constructor(
     private reviewsService: ReviewsService,
@@ -30,8 +30,6 @@ export class EditReviewComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.reviewId = this.activatedRoute.snapshot.paramMap.get('id') as string;
-
     this.reviewsService.getReviewById(this.reviewId).subscribe((result) => {
       this.review = result;
 
@@ -83,8 +81,6 @@ export class EditReviewComponent implements OnInit {
       return;
     }
 
-    const reviewId = this.activatedRoute.snapshot.paramMap.get('id');
-
     if (!this.reviewId) {
       return;
     }
@@ -92,7 +88,7 @@ export class EditReviewComponent implements OnInit {
     this.reviewsService
       .editReviewById(this.reviewId, editedReview)
       .subscribe(() => {
-        this.router.navigate([`games-reviews-list/details/${reviewId}`]);
+        this.router.navigate([`games-reviews-list/details/${this.reviewId}`]);
       });
   }
 }
