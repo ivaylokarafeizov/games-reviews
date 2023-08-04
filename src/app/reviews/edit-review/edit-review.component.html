@@ -1,4 +1,5 @@
 <main id="edit-page" class="main">
+  <app-loader *ngIf="isLoading" />
   <form class="edit-form" [formGroup]="editForm" (ngSubmit)="onEdit()">
     <h3>Edit Review</h3>
 

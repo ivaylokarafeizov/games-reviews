@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-review.component.css'],
 })
 export class EditReviewComponent implements OnInit {
+  isLoading: boolean = false;
   review!: IReview;
   reviewId: string | null = null;
 
@@ -58,6 +59,8 @@ export class EditReviewComponent implements OnInit {
       return;
     }
 
+    this.isLoading = true;
+
     const editedReview: IReview = {
       name: this.editForm.value.name!,
       title: this.editForm.value.title!,
@@ -67,6 +70,18 @@ export class EditReviewComponent implements OnInit {
       _ownerId: this.review._ownerId,
       _id: this.review._id,
     };
+
+    if (
+      (!editedReview.name || editedReview.name.trim().length === 0) &&
+      (!editedReview.title || editedReview.title.trim().length === 0) &&
+      (!editedReview.genre || editedReview.genre.trim().length === 0) &&
+      (!editedReview.review || editedReview.review.trim().length === 0) &&
+      (!editedReview.imageUrl || editedReview.imageUrl.trim().length === 0)
+    ) {
+      alert('Please enter data in the fields!');
+      this.editForm.reset();
+      return;
+    }
 
     const reviewId = this.activatedRoute.snapshot.paramMap.get('id');
 
