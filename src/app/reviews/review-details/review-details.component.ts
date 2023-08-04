@@ -65,15 +65,18 @@ export class ReviewDetailsComponent implements AfterViewInit {
     }
   }
 
+  onAddComment(reviewId: string | undefined) {
+    if (reviewId) {
+      this.router.navigate(['games-reviews-list/add-comment/', reviewId]);
+    } else {
+      alert('No id provided. Cannot edit the review!');
+      return;
+    }
+  }
+
   isAuthorized(): boolean {
     return (
       this.loggedUserId !== null && this.loggedUserId === this.reviewOwnerId
-    );
-  }
-
-  isOwner(): boolean {
-    return (
-      this.loggedUserId !== null && this.loggedUserId !== this.reviewOwnerId
     );
   }
 }

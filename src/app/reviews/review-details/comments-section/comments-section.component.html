@@ -1,12 +1,12 @@
 <div *ngIf="commentsList && commentsList.length > 0; else noCommentsYet">
   <div class="comment" *ngFor="let comment of commentsList">
     <div class="comment-header">
-      <h5>Comment by {{ comment.name }}</h5>
-      <div class="comment-btns">
+      <h5>{{ comment.name }}</h5>
+      <div class="comment-btns" *ngIf="isOwner(comment)">
         <button class="edit-btn">
           <i class="fas fa-edit"></i>
         </button>
-        <button class="delete-btn">
+        <button class="delete-btn" (click)="onDeleteComment(comment._id)">
           <i class="fas fa-trash"></i>
         </button>
       </div>

@@ -1,14 +1,50 @@
-<div class="comment-form">
-  <h4>Add a Comment</h4>
-  <form>
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+<main id="create-page" class="main">
+  <app-loader *ngIf="isLoading" />
+  <form
+    class="create-form"
+    #createForm="ngForm"
+    (ngSubmit)="onSubmit(createForm)"
+  >
+    <h3>Add Comment</h3>
+
+    <label for="name" class="label"> Name </label>
+    <input
+      type="text"
+      name="name"
+      placeholder="First and last name..."
+      #inputName="ngModel"
+      minlength="5"
+      ngModel
+      required
+    />
+    <div *ngIf="inputName.touched" class="errors-div">
+      <div class="error" *ngIf="inputName.errors?.['minlength']">
+        Minimum 5 characters are required!
+      </div>
+      <div class="error" *ngIf="inputName.errors?.['required']">
+        Name is required!
+      </div>
     </div>
-    <div class="form-group">
-      <label for="comment">Comment:</label>
-      <textarea id="comment" name="comment" rows="4" required></textarea>
+
+    <label for="comment" class="label"> Comment </label>
+    <input
+      type="text"
+      name="comment"
+      placeholder="Comment here..."
+      minlength="5"
+      #inputTitle="ngModel"
+      ngModel
+      required
+    />
+    <div *ngIf="inputTitle.touched" class="errors-div">
+      <div class="error" *ngIf="inputTitle.errors?.['minlength']">
+        Minimum 5 characters are required!
+      </div>
+      <div class="error" *ngIf="inputTitle.errors?.['required']">
+        Comment is required!
+      </div>
     </div>
-    <button type="submit" class="submit-btn">Submit</button>
+
+    <button type="submit" class="create-btn">Submit</button>
   </form>
-</div>
+</main>

@@ -105,4 +105,24 @@
 
 .comment-form-section {
   border-top: 2px solid rgb(170, 168, 168);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-form-section .add-comment-btn {
+  align-self: center;
+  margin-top: 40px;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form-section .add-comment-btn:hover {
+  background-color: #45a049;
 }

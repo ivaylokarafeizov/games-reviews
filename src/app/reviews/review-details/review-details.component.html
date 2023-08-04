@@ -22,8 +22,10 @@
         {{ review?.review }}
       </p>
     </div>
-    <section *ngIf="!isOwner()" class="comment-form-section">
-      <app-add-comment />
+    <section *ngIf="!isAuthorized()" class="comment-form-section">
+      <button class="add-comment-btn" (click)="onAddComment(review?._id)">
+        Add Comment
+      </button>
     </section>
     <section class="comments-section">
       <app-comments-section />

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments/comments.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { IComment } from 'src/app/interfaces/comment';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comments-section',
@@ -9,20 +10,21 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./comments-section.component.css'],
 })
 export class CommentsSectionComponent implements OnInit {
-  commentsList: IComment[] | null = null;
+  commentsList: IComment[] | undefined = undefined;
+  loggedUserId = this.authService.loggedUser?._id as string;
 
   constructor(
     private commentsService: CommentsService,
-    private route: ActivatedRoute,
-    private router: Router
+    private authService: AuthService,
+    private route: ActivatedRoute
   ) {}
 
-  id = this.route.snapshot.paramMap.get('id') as string;
+  reviewId = this.route.snapshot.paramMap.get('id') as string;
 
   ngOnInit(): void {
-    this.commentsService.getCommentsById(this.id).subscribe({
+    this.commentsService.getCommentsById(this.reviewId).subscribe({
       next: (value) => {
-        if (value !== null) {
+        if (value !== undefined) {
           this.commentsList = Object.values(value);
         } else {
           this.commentsList = [];
@@ -32,5 +34,27 @@ export class CommentsSectionComponent implements OnInit {
         alert(error);
       },
     });
+  }
+
+  onDeleteComment(id?: string): void {
+    if (id) {
+      this.commentsService.deleteCommentById(id, this.reviewId).subscribe({
+        next: () => {
+          this.commentsList = this.commentsList?.filter(
+            (comment) => comment._id !== id
+          );
+        },
+        error: (error) => {
+          alert(error);
+        },
+      });
+    } else {
+      alert('No id provided. Cannot delete the review!');
+      return;
+    }
+  }
+
+  isOwner(comment: IComment): boolean {
+    return this.loggedUserId !== null && this.loggedUserId === comment._ownerId;
   }
 }
