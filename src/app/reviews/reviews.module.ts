@@ -8,6 +8,8 @@ import { RecentReviewsListComponent } from './recent-reviews-list/recent-reviews
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { EditReviewComponent } from './edit-review/edit-review.component';
+import { AddCommentComponent } from './review-details/add-comment/add-comment.component';
+import { CommentsSectionComponent } from './review-details/comments-section/comments-section.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { EditReviewComponent } from './edit-review/edit-review.component';
     AddReviewComponent,
     RecentReviewsListComponent,
     EditReviewComponent,
+    AddCommentComponent,
+    CommentsSectionComponent,
   ],
   imports: [
     CommonModule,
