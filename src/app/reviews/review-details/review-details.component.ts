@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { IReview } from '../../interfaces/review';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-review-details',
@@ -11,9 +12,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ReviewDetailsComponent implements AfterViewInit {
   isLoading: boolean = true;
   review: IReview | null = null;
+  loggedUserId = this.authService.loggedUser?._id as string;
+  reviewOwnerId: string | null = null;
 
   constructor(
     private reviewsService: ReviewsService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -24,6 +28,7 @@ export class ReviewDetailsComponent implements AfterViewInit {
     this.reviewsService.getReviewById(this.id).subscribe({
       next: (value) => {
         this.review = value;
+        this.reviewOwnerId = value._ownerId;
         this.isLoading = false;
       },
       error: (error) => {
@@ -47,12 +52,22 @@ export class ReviewDetailsComponent implements AfterViewInit {
       });
     } else {
       alert('No id provided. Cannot delete the review!');
+      return;
     }
   }
 
   onEditReview(reviewId: string | undefined) {
     if (reviewId) {
       this.router.navigate(['games-reviews-list/edit', reviewId]);
+    } else {
+      alert('No id provided. Cannot edit the review!');
+      return;
     }
+  }
+
+  isAuthorized(): boolean {
+    return (
+      this.loggedUserId !== null && this.loggedUserId === this.reviewOwnerId
+    );
   }
 }

@@ -6,7 +6,7 @@
     <div class="card-img">
       <img src="{{ review?.imageUrl }}" alt="{{ review?.title }}" />
     </div>
-    <div class="icons">
+    <div class="icons" *ngIf="isAuthorized()">
       <button class="edit-btn" (click)="onEditReview(review?._id)">
         <i class="fas fa-edit"></i>
       </button>
@@ -22,7 +22,7 @@
         {{ review?.review }}
       </p>
     </div>
-    <section class="comment-form-section">
+    <section class="comment-form-section" *ngIf="!isAuthorized()">
       <div class="comment-form">
         <h4>Add a Comment</h4>
         <form>
