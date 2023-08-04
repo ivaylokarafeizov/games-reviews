@@ -15,9 +15,6 @@ export class ReviewsService implements OnDestroy {
   subscription: Subscription | undefined;
 
   private _reviews$ = new BehaviorSubject<IReview[]>([]);
-  private book$$ = new BehaviorSubject<IReview | undefined>(undefined);
-  public book$ = this.book$$.asObservable();
-  book: IReview | undefined;
 
   constructor(
     private httpClient: HttpClient,
