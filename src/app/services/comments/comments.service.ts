@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
-import { IReview } from 'src/app/interfaces/review';
+import { IComment } from 'src/app/interfaces/comment';
 import { environment } from 'src/environments/environment';
 
 const apiURL = environment.apiURL;
@@ -16,7 +16,7 @@ export class CommentsService {
     private authService: AuthService
   ) {}
 
-  getComments(): Observable<IReview[]> {
-    return this.httpClient.get<IReview[]>(apiURL + '/comments');
+  getComments(): Observable<IComment[]> {
+    return this.httpClient.get<IComment[]>(apiURL + '/comments');
   }
 }
