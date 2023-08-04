@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { EditReviewComponent } from './edit-review/edit-review.component';
 import { AddCommentComponent } from './review-details/add-comment/add-comment.component';
 import { CommentsSectionComponent } from './review-details/comments-section/comments-section.component';
+import { EditCommentComponent } from './review-details/edit-comment/edit-comment.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CommentsSectionComponent } from './review-details/comments-section/comm
     EditReviewComponent,
     AddCommentComponent,
     CommentsSectionComponent,
+    EditCommentComponent,
   ],
   imports: [
     CommonModule,
