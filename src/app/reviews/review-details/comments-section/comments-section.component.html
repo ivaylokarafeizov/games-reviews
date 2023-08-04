@@ -1,0 +1,24 @@
+<div *ngIf="commentsList && commentsList.length > 0; else noCommentsYet">
+  <div class="comment" *ngFor="let comment of commentsList">
+    <div class="comment-header">
+      <h5>Comment by {{ comment.name }}</h5>
+      <div class="comment-btns">
+        <button class="edit-btn">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="delete-btn">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </div>
+    <div class="comment-content">
+      <p>{{ comment.comment }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noCommentsYet>
+  <div class="no-comments-container">
+    <p class="no-comments-message">No comments yet....</p>
+  </div>
+</ng-template>

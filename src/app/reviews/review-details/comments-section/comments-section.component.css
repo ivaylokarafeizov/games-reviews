@@ -1,0 +1,55 @@
+.comment {
+  background-color: #ffffff;
+  border-top: 2px solid rgb(170, 168, 168);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.comment-header h5 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.comment-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.comment-header button {
+  padding: 0 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+}
+
+.comment-header .fa-trash {
+  color: red;
+}
+
+.comment-header .fa-edit {
+  color: green;
+}
+
+.no-comments-container {
+  border-top: 2px solid rgb(170, 168, 168);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.no-comments-message {
+  text-align: center;
+  font-size: 24px;
+  color: gray;
+}

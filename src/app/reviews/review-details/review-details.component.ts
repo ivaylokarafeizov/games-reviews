@@ -70,4 +70,10 @@ export class ReviewDetailsComponent implements AfterViewInit {
       this.loggedUserId !== null && this.loggedUserId === this.reviewOwnerId
     );
   }
+
+  isOwner(): boolean {
+    return (
+      this.loggedUserId !== null && this.loggedUserId !== this.reviewOwnerId
+    );
+  }
 }

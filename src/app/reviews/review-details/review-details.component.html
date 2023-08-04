@@ -22,39 +22,11 @@
         {{ review?.review }}
       </p>
     </div>
-    <section class="comment-form-section" *ngIf="!isAuthorized()">
-      <div class="comment-form">
-        <h4>Add a Comment</h4>
-        <form>
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Submit</button>
-        </form>
-      </div>
+    <section *ngIf="!isOwner()" class="comment-form-section">
+      <app-add-comment />
     </section>
     <section class="comments-section">
-      <div class="comment">
-        <div class="comment-header">
-          <h5>Comment by John Doe</h5>
-          <div class="comment-btns">
-            <button class="edit-btn">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="delete-btn">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        </div>
-        <div class="comment-content">
-          <p>This is the comment text...</p>
-        </div>
-      </div>
+      <app-comments-section />
     </section>
   </section>
 </main>
