@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditReviewComponent implements OnInit {
   isLoading: boolean = false;
+  imageUrlPattern = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)$/;
   review!: IReview;
   reviewId = this.activatedRoute.snapshot.paramMap.get('id') as string;
 
@@ -78,6 +79,11 @@ export class EditReviewComponent implements OnInit {
     ) {
       alert('Please enter data in the fields!');
       this.editForm.reset();
+      return;
+    }
+
+    if (!this.imageUrlPattern.test(editedReview.imageUrl)) {
+      alert('Please enter a valid image url!');
       return;
     }
 

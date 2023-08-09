@@ -13,6 +13,7 @@ import { v4 as uuid } from 'uuid';
 })
 export class AddReviewComponent {
   isLoading: boolean = false;
+  imageUrlPattern = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)$/;
 
   constructor(
     private reviewsService: ReviewsService,
@@ -46,6 +47,11 @@ export class AddReviewComponent {
     ) {
       alert('Please enter data in the fields!');
       form.reset();
+      return;
+    }
+
+    if (!this.imageUrlPattern.test(formData.imageUrl)) {
+      alert('Please enter a valid image url!');
       return;
     }
 
