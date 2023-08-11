@@ -15,6 +15,7 @@ export class RouteGuard {
       map((user) => {
         if (!user) {
           this.router.navigate(['/login']);
+          alert('Guests cannot access this page! Please login or register...');
           return false;
         }
         return true;
