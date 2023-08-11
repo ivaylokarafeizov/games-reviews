@@ -1,34 +1,24 @@
-import { Router, UrlTree } from '@angular/router';
-import { Injectable, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RouteGuard implements OnDestroy {
-  subscription: Subscription | undefined;
-
+export class RouteGuard {
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
-  }
-
-  canActivate():
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    let isAuth: boolean = false;
-    this.subscription = this.authService.loggedUser$.subscribe((user) => {
-      isAuth = !!user;
-    });
-    if (isAuth) {
-      return true;
-    }
-    alert('You are not authorized to access this page!');
-    return this.router.createUrlTree(['/login']);
+  canActivate(): Observable<boolean> {
+    return this.authService.loggedUser$.pipe(
+      map((user) => {
+        if (!user) {
+          this.router.navigate(['/login']);
+          return false;
+        }
+        return true;
+      })
+    );
   }
 }
